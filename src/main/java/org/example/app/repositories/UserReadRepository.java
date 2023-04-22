@@ -23,14 +23,14 @@ public class UserReadRepository {
 
             List<User> list = new ArrayList<>();
 
-            String sql = "SELECT id, login, pass, email FROM " + Constants.TABLE_USERS;
+            String sql = "SELECT id, name, phone, email FROM " + Constants.TABLE_USERS;
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 User user = new User();
                 user.setId(rs.getInt("id"));
-                user.setLogin(rs.getString("login"));
-                user.setPass(rs.getString("pass"));
+                user.setName(rs.getString("name"));
+                user.setPhone(rs.getString("phone"));
                 user.setEmail(rs.getString("email"));
                 list.add(user);
             }

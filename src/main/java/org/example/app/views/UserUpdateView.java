@@ -9,14 +9,13 @@ public class UserUpdateView {
 
         String title = "Enter contact's ID: ";
         System.out.print(title);
-        System.out.print(title);
         String id = scanner.nextLine();
 
-        title = "Enter new password: ";
+        title = "Enter new phone in format xxx xxx-xxxx: ";
         System.out.print(title);
-        String pass = scanner.nextLine().trim();
+        String phone = scanner.nextLine().trim();
 
-        return new String[] {id, pass};
+        return new String[] {id, phone};
     }
 
     public void getOutput(String output) {

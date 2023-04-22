@@ -2,8 +2,8 @@ package org.example.app.entities;
 
 public class User {
     private int id;
-    private String login;
-    private String pass;
+    private String name;
+    private String phone;
     private String email;
 
     public int getId() {
@@ -12,17 +12,17 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-    public String getLogin() {
-        return login;
+    public String getName() {
+        return name;
     }
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getPass() {
-        return pass;
+    public String getPhone() {
+        return phone;
     }
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
     public String getEmail() {
         return email;

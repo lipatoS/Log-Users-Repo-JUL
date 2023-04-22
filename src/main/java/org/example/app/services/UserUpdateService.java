@@ -5,10 +5,7 @@ import org.example.app.entities.User;
 import org.example.app.exceptions.DBException;
 import org.example.app.exceptions.UpdateException;
 import org.example.app.repositories.UserUpdateRepository;
-import org.example.app.utils.Constants;
-import org.example.app.utils.EmailValidator;
-import org.example.app.utils.IdChecker;
-import org.example.app.utils.IdValidator;
+import org.example.app.utils.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,6 +66,9 @@ public class UserUpdateService {
         if (IdChecker.isIdExists(id))
             errors.put("id", Constants.ID_NO_EXISTS_MSG);
 
+        if (PhoneValidator.isPhoneValid(data[1]))
+            errors.put("phone", Constants.WRONG_PHONE_MSG);
+
 
         return errors;
     }
@@ -76,7 +76,7 @@ public class UserUpdateService {
     private User mapData(String[] data) {
         User user = new User();
         user.setId(Integer.parseInt(data[0].trim()));
-        user.setPass(data[1].trim());
+        user.setPhone(data[1].trim());
         return user;
     }
 }

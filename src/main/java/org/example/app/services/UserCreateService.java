@@ -7,6 +7,7 @@ import org.example.app.exceptions.DBException;
 import org.example.app.repositories.UserCreateRepository;
 import org.example.app.utils.Constants;
 import org.example.app.utils.EmailValidator;
+import org.example.app.utils.PhoneValidator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,10 +51,10 @@ public class UserCreateService {
         Map<String, String> errors = new HashMap<>();
 
         if (data[0].trim().isEmpty())
-            errors.put("login", Constants.INPUT_REQ_MSG);
+            errors.put("name", Constants.INPUT_REQ_MSG);
 
-        if (data[1].trim().isEmpty())
-            errors.put("password", Constants.INPUT_REQ_MSG);
+        if (PhoneValidator.isPhoneValid(data[1].trim()))
+            errors.put("phone", Constants.WRONG_PHONE_MSG);
 
         if (EmailValidator.isEmailValid(data[2].trim()))
             errors.put("email", Constants.WRONG_EMAIL_MSG);
@@ -62,8 +63,8 @@ public class UserCreateService {
     }
     private User mapData(String[] data) {
         User user = new User();
-        user.setLogin(data[0].trim());
-        user.setPass(data[1].trim());
+        user.setName(data[0].trim());
+        user.setPhone(data[1].trim());
         user.setEmail(data[2].trim());
         return user;
     }

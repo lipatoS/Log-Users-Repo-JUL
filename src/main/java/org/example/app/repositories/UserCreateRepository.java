@@ -15,10 +15,10 @@ public class UserCreateRepository {
             Logger.getLogger(UserCreateRepository.class.getName());
 
     public String createUser(User user) {
-        String sql = "INSERT INTO " + Constants.TABLE_USERS + "(login, pass, email) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO " + Constants.TABLE_USERS + "(name, phone, email) VALUES(?, ?, ?)";
         try (PreparedStatement pstmt = DBConn.connect().prepareStatement(sql)) {
-            pstmt.setString(1, user.getLogin());
-            pstmt.setString(2, user.getPass());
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getPhone());
             pstmt.setString(3, user.getEmail());
             pstmt.executeUpdate();
             return Constants.DATA_INSERT_MSG;

@@ -13,9 +13,9 @@ public class UserUpdateRepository {
     private static final Logger LOGGER =
             Logger.getLogger(UserUpdateRepository.class.getName());
     public String updateUser(User user) {
-        String sql = "UPDATE " + Constants.TABLE_USERS + " SET pass = ? WHERE id = ?";
+        String sql = "UPDATE " + Constants.TABLE_USERS + " SET phone = ? WHERE id = ?";
         try (PreparedStatement pstmt = DBConn.connect().prepareStatement(sql)) {
-            pstmt.setString(1, user.getPass());
+            pstmt.setString(1, user.getPhone());
             pstmt.setInt(2, user.getId());
             pstmt.executeUpdate();
             return Constants.DATA_UPDATE_MSG;

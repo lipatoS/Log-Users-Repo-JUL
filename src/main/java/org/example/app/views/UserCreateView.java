@@ -9,19 +9,19 @@ public class UserCreateView {
         Scanner scanner = new Scanner(System.in);
 
 
-        String title = "Enter login: ";
+        String title = "Enter name: ";
         System.out.print(title);
-        String login = scanner.nextLine();
+        String name = scanner.nextLine();
 
-        title = "Enter password: ";
+        title = "Enter phone in format xxx xxx-xxxx: ";
         System.out.print(title);
-        String pass = scanner.nextLine();
+        String phone = scanner.nextLine();
 
         title = "Enter email in format example@mail.com: ";
         System.out.print(title);
         String email = scanner.nextLine();
 
-        return new String[]{login, pass, email};
+        return new String[]{name, phone, email};
     }
 
     public void getOutput(String output) {
